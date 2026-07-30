@@ -2,9 +2,21 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const Experience: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('company1');
+  const [activeTab, setActiveTab] = useState('flyrank');
 
   const experienceData = [
+    {
+      id: 'flyrank',
+      company: 'FlyRank AI',
+      role: 'Backend AI Engineer Intern',
+      period: 'June 2026 – Present',
+      isCurrent: true,
+      points: [
+        'Gained hands-on exposure to Backend AI architectures and performance optimization techniques.',
+        'Completed advanced Anthropic courses to deepen understanding of cutting-edge LLM capabilities.',
+        'Successfully integrated AI models into backend systems for various related assignments.',
+      ],
+    },
     {
       id: 'company1',
       company: 'The Christian Co-Operative Credit Union Ltd.',
