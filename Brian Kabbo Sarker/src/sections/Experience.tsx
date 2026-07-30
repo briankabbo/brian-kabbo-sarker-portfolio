@@ -20,7 +20,7 @@ const Experience: React.FC = () => {
     {
       id: 'company1',
       company: 'The Christian Co-Operative Credit Union Ltd.',
-      role: 'Trainee Software Developer (Full Time)',
+      role: 'Trainee Software Developer',
       period: 'Nov 2024 – Present',
       isCurrent: true,
       points: [
@@ -33,7 +33,7 @@ const Experience: React.FC = () => {
     {
       id: 'company2',
       company: 'Wellessia',
-      role: 'Video Editor (Full Time)',
+      role: 'Video Editor',
       period: 'Aug 2024 – Nov 2024',
       isCurrent: false,
       points: [
@@ -45,7 +45,7 @@ const Experience: React.FC = () => {
     {
       id: 'company3',
       company: 'Babuland LTD',
-      role: 'Compliance Associate (Part-Time)',
+      role: 'Compliance Associate',
       period: 'May 2022 – Oct 2023',
       isCurrent: false,
       points: [
@@ -158,8 +158,8 @@ const Experience: React.FC = () => {
               key={exp.id}
               onClick={() => setActiveTab(exp.id)}
               className={`btn-shine text-left px-6 py-4 rounded-xl border transition-all duration-300 ${activeTab === exp.id
-                  ? 'bg-moonstone text-zinc-950 font-bold border-moonstone'
-                  : 'bg-transparent border-moonstone-border/20 text-white hover:bg-white'
+                ? 'bg-moonstone text-zinc-950 font-bold border-moonstone'
+                : 'bg-transparent border-moonstone-border/20 text-white hover:bg-white'
                 }`}
             >
               {exp.company}
