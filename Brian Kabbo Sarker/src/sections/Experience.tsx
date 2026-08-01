@@ -94,7 +94,7 @@ const Experience: React.FC = () => {
         variants={revealVariants}
         className="mb-10 sm:mb-12 lg:mb-20 border-b border-white/10 pb-4"
       >
-        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#aaa] uppercase">MY JOURNEY</h2>
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#aaa] uppercase">PROFESSIONAL EXPERIENCE</h2>
       </motion.div>
 
       {/* ─── Mobile — stacked cards, no timeline decoration (hidden on lg+) ─── */}
