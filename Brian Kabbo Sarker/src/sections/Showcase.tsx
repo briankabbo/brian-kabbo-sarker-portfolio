@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'motion/react';
 import { Github, ExternalLink } from 'lucide-react';
 
 interface Project {
@@ -11,6 +11,8 @@ interface Project {
   github: string | null;
   live: string | null;
 }
+
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const projects: Project[] = [
   {
@@ -46,19 +48,40 @@ const Showcase: React.FC = () => {
   const [activeProject, setActiveProject] = React.useState(0);
   const project = projects[activeProject];
 
+  // Ref for the scrollable right-hand image column. We derive activeProject
+  // from continuous scroll progress across this column instead of relying
+  // on per-block onViewportEnter/IntersectionObserver triggers. The old
+  // approach used three independent observers with amount: 0.5 thresholds,
+  // which round differently at different browser zoom levels and can fall
+  // out of sync with each other — that's what caused the "uneven" bug.
+  const rightColRef = React.useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: rightColRef,
+    offset: ['start start', 'end end'],
+  });
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    const index = Math.min(
+      projects.length - 1,
+      Math.max(0, Math.floor(latest * projects.length))
+    );
+    setActiveProject((prev) => (prev === index ? prev : index));
+  });
+
   return (
     <section
       id="works"
       className="max-w-6xl mx-auto px-0 lg:px-6 py-12 sm:py-16 lg:py-0 min-w-0"
-      style={{ overflow: 'clip' }}
+      style={{ overflowX: 'clip', overflowY: 'visible' }}
     >
       {/*DESKTOP*/}
       <div className="hidden lg:flex" style={{ alignItems: 'flex-start' }}>
 
         {/* LEFT — Sticky Info Panel */}
         <div
-          className="w-[45%] flex flex-col"
-          style={{ position: 'sticky', top: 0, height: '100vh' }}
+          className="w-[45%] relative flex flex-col"
+          style={{ position: 'sticky', top: 0, height: '100svh' }}
         >
           <motion.div
             initial="hidden"
@@ -71,11 +94,11 @@ const Showcase: React.FC = () => {
                 y: 0,
                 transition: {
                   duration: 0.8,
-                  ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+                  ease: EASE,
                 },
               },
             }}
-            className="flex-shrink-0 pt-16 pb-4 border-b border-white/10"
+            className="absolute top-0 left-0 right-0 pt-16 pb-4 border-b border-white/10 z-10"
           >
             <div className="flex items-center justify-between pr-8">
               <h2 className="text-xl md:text-2xl font-bold tracking-[0.3em] text-[#aaa] uppercase font-poppins">
@@ -87,7 +110,7 @@ const Showcase: React.FC = () => {
             </div>
           </motion.div>
 
-          <div className="flex-1 flex flex-col justify-start pt-16 pr-12">
+          <div className="flex-1 flex flex-col justify-center pr-12">
             <div className="flex flex-col">
 
               {/* Ticker Counter */}
@@ -102,7 +125,7 @@ const Showcase: React.FC = () => {
                         y: 0,
                         transition: {
                           duration: 0.3,
-                          ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+                          ease: EASE,
                         },
                       }}
                       exit={{ y: -24, transition: { duration: 0.15, ease: 'easeIn' } }}
@@ -139,7 +162,7 @@ const Showcase: React.FC = () => {
                   animate={{ opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } }}
                   exit={{ opacity: 0, transition: { duration: 0.25, ease: 'easeIn' } }}
                 >
-                  <p className="mb-6 text-sm text-white/60 leading-relaxed max-w-[380px]">
+                  <p className="mb-6 text-sm text-white/60 leading-relaxed max-w-[90%]">
                     {project.description}
                   </p>
                 </motion.div>
@@ -156,7 +179,7 @@ const Showcase: React.FC = () => {
                       y: 0,
                       transition: {
                         duration: 0.4,
-                        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+                        ease: EASE,
                       },
                     }}
                     exit={{ opacity: 0, y: -6, transition: { duration: 0.2 } }}
@@ -179,16 +202,14 @@ const Showcase: React.FC = () => {
         </div>
 
         {/* RIGHT — Image Column */}
-        <div className="w-[55%]">
-          {projects.slice(0, 3).map((item, index) => (
-            <motion.div
+        <div className="w-[55%]" ref={rightColRef}>
+          {projects.slice(0, 3).map((item) => (
+            <div
               key={item.id}
               className="flex items-center justify-end px-8"
-              style={{ minHeight: '100vh' }}
-              onViewportEnter={() => setActiveProject(index)}
-              viewport={{ amount: 0.5 }}
+              style={{ minHeight: '100svh' }}
             >
-              <div className="relative w-full max-w-[500px]">
+              <div className="relative w-full max-w-full">
                 <div className="absolute -inset-3 border border-moonstone/20 rounded-2xl" />
                 <div className="relative z-10 w-full rounded-xl overflow-hidden shadow-2xl bg-zinc-900/20 backdrop-blur-3xl border border-white/5 flex items-center justify-center">
 
@@ -228,7 +249,7 @@ const Showcase: React.FC = () => {
 
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

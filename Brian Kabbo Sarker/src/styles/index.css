@@ -31,10 +31,6 @@
     100% { left: 100%; }
   }
 
-  @keyframes holographic-shimmer {
-    0% { background-position: -200% -200%; }
-    100% { background-position: 200% 200%; }
-  }
 }
 
 @keyframes tickUp {
@@ -46,6 +42,11 @@
   94%  { transform: translateY(-2.4em); }
   99%  { transform: translateY(-3.6em); animation-timing-function: step-end; }
   100% { transform: translateY(0); }
+}
+
+@keyframes holographic-shimmer {
+  0% { background-position: -200% -200%; }
+  100% { background-position: 200% 200%; }
 }
 
 :root {

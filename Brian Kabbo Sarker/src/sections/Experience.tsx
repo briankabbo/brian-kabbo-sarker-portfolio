@@ -151,16 +151,17 @@ const Experience: React.FC = () => {
       </div>
 
       {/* ─── Desktop — sidebar tabs (unchanged) ─── */}
-      <div className="hidden lg:flex gap-24">
+      <div className="hidden lg:flex lg:gap-12 xl:gap-24">
         <div className="flex flex-col w-1/3 gap-3">
           {experienceData.map((exp) => (
             <button
               key={exp.id}
               onClick={() => setActiveTab(exp.id)}
-              className={`btn-shine text-left px-6 py-4 rounded-xl border transition-all duration-300 ${activeTab === exp.id
+              className={`btn-shine text-left px-6 py-4 rounded-xl border transition-all duration-300 truncate ${activeTab === exp.id
                 ? 'bg-moonstone text-zinc-950 font-bold border-moonstone'
                 : 'bg-transparent border-moonstone-border/20 text-white hover:bg-white'
                 }`}
+              title={exp.company}
             >
               {exp.company}
             </button>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useSpring, useMotionValue } from 'motion/react';
 
 const CursorGlow: React.FC = () => {
@@ -10,16 +10,29 @@ const CursorGlow: React.FC = () => {
   const smoothY = useSpring(mouseY, springConfig);
 
   const [isVisible, setIsVisible] = useState(false);
+  // Ref mirrors state so the mousemove handler can read it without being
+  // re-registered every time visibility changes (eliminates stale-closure
+  // listener churn that caused the glow to lag/flicker).
+  const isVisibleRef = useRef(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      if (!isVisibleRef.current) {
+        isVisibleRef.current = true;
+        setIsVisible(true);
+      }
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
+    const handleMouseLeave = () => {
+      isVisibleRef.current = false;
+      setIsVisible(false);
+    };
+    const handleMouseEnter = () => {
+      isVisibleRef.current = true;
+      setIsVisible(true);
+    };
 
     window.addEventListener('mousemove', handleMouseMove);
     document.body.addEventListener('mouseenter', handleMouseEnter);
@@ -30,7 +43,7 @@ const CursorGlow: React.FC = () => {
       document.body.removeEventListener('mouseenter', handleMouseEnter);
       document.body.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [mouseX, mouseY, isVisible]);
+  }, [mouseX, mouseY]); // isVisible intentionally omitted — handled via ref
 
   if (typeof window !== 'undefined' && !window.matchMedia("(pointer: fine)").matches) {
     return null;

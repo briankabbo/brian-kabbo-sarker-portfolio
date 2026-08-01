@@ -58,22 +58,20 @@ const Navbar: React.FC = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="fixed left-0 top-0 h-screen w-[120px] z-50 hidden lg:flex flex-col items-start pl-6 justify-center">
+      <aside className="fixed left-0 top-0 h-screen w-[80px] xl:w-[120px] z-50 hidden lg:flex flex-col items-start pl-4 xl:pl-6 justify-center">
         <div className="flex flex-col items-start space-y-4">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.id, link.href)}
-              className={`relative group text-[13px] tracking-[0.2em] transition-colors duration-300 min-h-[44px] flex items-center whitespace-nowrap ${
-                activeSection === link.id ? 'text-white' : 'text-[#aaa] hover:text-white'
-              }`}
+              className={`relative group text-[13px] tracking-[0.2em] transition-colors duration-300 min-h-[44px] flex items-center whitespace-nowrap ${activeSection === link.id ? 'text-white' : 'text-[#aaa] hover:text-white'
+                }`}
             >
               {link.name}
-              <span 
-                className={`absolute left-0 bottom-[-4px] h-[1px] bg-white transition-transform duration-300 ease-out origin-left ${
-                  activeSection === link.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                }`}
+              <span
+                className={`absolute left-0 bottom-[-4px] h-[1px] bg-white transition-transform duration-300 ease-out origin-left ${activeSection === link.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                  }`}
                 style={{ width: '100%' }}
               />
             </a>
@@ -105,9 +103,8 @@ const Navbar: React.FC = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.id, link.href)}
-                className={`text-xl sm:text-2xl tracking-[0.2em] sm:tracking-[0.3em] min-h-11 flex items-center transition-colors duration-300 ${
-                  activeSection === link.id ? 'text-white' : 'text-[#aaa]'
-                }`}
+                className={`text-xl sm:text-2xl tracking-[0.2em] sm:tracking-[0.3em] min-h-11 flex items-center transition-colors duration-300 ${activeSection === link.id ? 'text-white' : 'text-[#aaa]'
+                  }`}
               >
                 {link.name}
               </a>

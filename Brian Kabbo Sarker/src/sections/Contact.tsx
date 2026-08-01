@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
           className="group inline-block relative max-w-full"
         >
           <div className="overflow-hidden py-3 sm:py-4 px-1">
-            <h2 className="text-4xl sm:text-5xl md:text-8xl font-black text-white leading-none transition-all duration-700 group-hover:text-moonstone select-none break-words">
+            <p className="text-4xl sm:text-5xl md:text-8xl font-black text-white leading-none transition-all duration-700 group-hover:text-moonstone select-none break-words">
               {"LET'S TALK".split('').map((char, i) => (
                 <motion.span
                   key={i}
@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
                   {char === ' ' ? '\u00A0' : char}
                 </motion.span>
               ))}
-            </h2>
+            </p>
           </div>
           <div className="h-[2px] w-0 group-hover:w-full bg-gradient-to-r from-transparent via-moonstone to-transparent transition-all duration-1000 mx-auto mt-4 opacity-50 group-hover:opacity-100 shadow-[0_0_20px_rgba(100,182,172,0.5)]" />
         </a>

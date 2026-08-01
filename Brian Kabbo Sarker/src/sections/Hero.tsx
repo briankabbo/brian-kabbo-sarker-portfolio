@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
 
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl mb-4 sm:mb-6 lg:mb-6 font-bold tracking-tight text-white leading-tight lg:leading-none break-words lg:break-normal"
+          className="text-4xl sm:text-5xl md:text-8xl lg:text-8xl xl:text-9xl mb-4 sm:mb-6 lg:mb-6 font-bold tracking-tight text-white leading-tight lg:leading-none break-words lg:break-normal"
         >
           Brian Kabbo
         </motion.h1>
@@ -74,6 +74,7 @@ const Hero: React.FC = () => {
         >
           <a
             href="#works"
+            onClick={(e) => { e.preventDefault(); document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="group btn-shine inline-flex items-center justify-center min-h-11 lg:min-h-0 px-6 sm:px-8 lg:px-8 py-3 sm:py-4 lg:py-4 rounded-full border border-moonstone-border text-moonstone font-bold text-base sm:text-lg lg:text-lg bg-transparent hover:bg-white transition-all duration-300"
           >
             View Work
