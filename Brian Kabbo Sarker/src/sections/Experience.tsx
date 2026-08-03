@@ -12,9 +12,10 @@ const Experience: React.FC = () => {
       period: 'June 2026 – Present',
       isCurrent: true,
       points: [
-        'A full backend AI engineering track from the ground up: CRUD APIs, database integration, and Docker containerization, then layered in AI, integrating to LLM APIs, building agentic decision flows with React Flow + Inngest, and a background job pipeline.',
-        'Working through auth systems, scraping infrastructure, and AI-integrated backend services as part of structured engineering program.',
-        'Currently deep in orchestration work: wiring AI decision flows using React Flow for visual logic and Inngest for durable background jobs, basically teaching an API when to think and when to just run.',
+        'A full backend AI engineering track from the CRUD APIs, database integration, and Docker containerization.',
+        'Integrated LLM APIs into backend services, connecting AI capabilities directly into existing infrastructure',
+        'Implemented authentication systems and web scraping pipelines as part of the engineering track.',
+        'Architected agentic decision flows using React Flow for visual logic and Inngest for durable background job execution.',
       ],
     },
     {
@@ -26,7 +27,7 @@ const Experience: React.FC = () => {
       points: [
         'Exposure to FinTech operations including ERP systems and financial application workflows',
         'Monitored and resolved system incidents in a 24/7 NOC environment to maintain continuous operation for 48,600+ active credit union members.',
-        'Maintained ERP reliability for approximately 619 staff by performing routine performance troubleshooting, system health checks, and network monitoring on financial application workflows.',
+        'Maintained ERP reliability for approximately 619 staff by performing routine performance troubleshooting, system health checks, and network monitoring.',
         'Actively building side projects in .NET, C#, React and TypeScript outside of formal responsibilities.',
       ],
     },
