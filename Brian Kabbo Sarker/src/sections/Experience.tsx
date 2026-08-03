@@ -12,9 +12,9 @@ const Experience: React.FC = () => {
       period: 'June 2026 – Present',
       isCurrent: true,
       points: [
-        'Gained hands-on exposure to Backend AI architectures and performance optimization techniques.',
-        'Completed advanced Anthropic courses to deepen understanding of cutting-edge LLM capabilities.',
-        'Successfully integrated AI models into backend systems for various related assignments.',
+        'A full backend AI engineering track from the ground up: CRUD APIs, database integration, and Docker containerization, then layered in AI, integrating to LLM APIs, building agentic decision flows with React Flow + Inngest, and a background job pipeline.',
+        'Working through auth systems, scraping infrastructure, and AI-integrated backend services as part of structured engineering program.',
+        'Currently deep in orchestration work: wiring AI decision flows using React Flow for visual logic and Inngest for durable background jobs, basically teaching an API when to think and when to just run.',
       ],
     },
     {
