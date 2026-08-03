@@ -13,7 +13,7 @@ const Experience: React.FC = () => {
       isCurrent: true,
       points: [
         'A full backend AI engineering track from the CRUD APIs, database integration, and Docker containerization.',
-        'Integrated LLM APIs into backend services, connecting AI capabilities directly into existing infrastructure',
+        'Integrated LLM APIs into backend services, enabling AI-generated responses and decision-making on top of the foundation.',
         'Implemented authentication systems and web scraping pipelines as part of the engineering track.',
         'Architected agentic decision flows using React Flow for visual logic and Inngest for durable background job execution.',
       ],
