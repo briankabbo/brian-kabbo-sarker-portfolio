@@ -62,7 +62,7 @@ const About: React.FC = () => {
         >
           <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed break-words">
             I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a fullstack software engineer focused on backend AI development.
-            Building RESTful APIs, async pipelines, and LLM-integrated backend systems. Background in computer vision research.
+            Building RESTful APIs, async pipelines, and LLM-integrated backend systems. Contributed in computer vision research.
           </p>
           <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed break-words">
             I hold a Bachelor degree in Computer Science & Engineering from <span className="text-moonstone font-semibold">Green University of Bangladesh</span>.
