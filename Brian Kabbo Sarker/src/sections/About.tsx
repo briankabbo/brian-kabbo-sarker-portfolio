@@ -6,10 +6,10 @@ import profilePhoto from '../assets/images/profile-photo.jpg';
 const About: React.FC = () => {
   const revealVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
     },
   };
 
@@ -35,7 +35,7 @@ const About: React.FC = () => {
 
       <div className="flex flex-col md:flex-row-reverse items-center md:items-start justify-between gap-10 sm:gap-12 lg:gap-16 mb-12 sm:mb-16 lg:mb-24">
         {/* Profile Photo */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -44,16 +44,16 @@ const About: React.FC = () => {
         >
           <div className="relative group">
             <div className="absolute -inset-3 border border-moonstone/20 rounded-2xl group-hover:border-moonstone group-hover:shadow-[0_10px_25px_-5px_rgba(224,231,255,0.25),0_8px_10px_-6px_rgba(0,0,0,0.1)] transition-all duration-500" />
-            <img 
-              src={profilePhoto} 
-              alt="Brian Kabbo Sarker" 
+            <img
+              src={profilePhoto}
+              alt="Brian Kabbo Sarker"
               className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-xl object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl relative z-10"
             />
           </div>
         </motion.div>
 
         {/* Bio Text */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -61,15 +61,15 @@ const About: React.FC = () => {
           className="w-full md:w-3/5 space-y-5 sm:space-y-6 lg:space-y-8 min-w-0"
         >
           <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed break-words">
-            I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a full-stack software developer focused
-            on building interactive and reliable web applications.
+            I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a Full-stack software engineer focused on backend AI development.
+            Building RESTful APIs, async pipelines, and LLM-integrated backend systems. Background in computer vision research, including a real-time sign language recognition system at 94\% detection accuracy.
           </p>
           <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed break-words">
             I hold a Bachelor degree in Computer Science & Engineering from <span className="text-moonstone font-semibold">Green University of Bangladesh</span>.
           </p>
           <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-white/90 break-words">
             My strongest skill is learning fast and adapting quickly. I work well in team environments, value clear
-            communication, and enjoy improving ideas through collaboration and iteration.
+            communication, and enjoy improving ideas through collaboration and iteration. Looking for roles where engineering and applied AI intersect
           </p>
         </motion.div>
       </div>
@@ -89,17 +89,17 @@ const About: React.FC = () => {
               <h4 className="text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold text-[#aaa] md:w-56 shrink-0 pt-0 md:pt-2 break-words">{stack.category}</h4>
               <div className="flex flex-wrap gap-3">
                 {stack.items.map((item) => (
-                  <motion.span 
+                  <motion.span
                     key={item}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.05,
                       zIndex: 20,
                       borderColor: "rgba(224, 231, 255, 0.4)",
                       boxShadow: "0 0 8px rgba(224, 231, 255, 0.15)"
                     }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 300, 
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
                       damping: 20
                     }}
                     className="px-4 py-2 rounded-lg bg-moonstone-dim border border-moonstone-border/10 text-moonstone text-sm font-medium cursor-default relative transition-colors duration-300"
