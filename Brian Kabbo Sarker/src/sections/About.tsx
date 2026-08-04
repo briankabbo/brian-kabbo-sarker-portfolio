@@ -61,8 +61,8 @@ const About: React.FC = () => {
           className="w-full md:w-3/5 space-y-5 sm:space-y-6 lg:space-y-8 min-w-0"
         >
           <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed break-words">
-            I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a Full-stack software engineer focused on backend AI development.
-            Building RESTful APIs, async pipelines, and LLM-integrated backend systems. Background in computer vision research, including a real-time sign language recognition system at 94\% detection accuracy.
+            I'm <span className="text-moonstone font-semibold">Brian Kabbo Sarker</span>, a fullstack software engineer focused on backend AI development.
+            Building RESTful APIs, async pipelines, and LLM-integrated backend systems. Background in computer vision research.
           </p>
           <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed break-words">
             I hold a Bachelor degree in Computer Science & Engineering from <span className="text-moonstone font-semibold">Green University of Bangladesh</span>.
