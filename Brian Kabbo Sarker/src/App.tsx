@@ -3,6 +3,7 @@ import { Linkedin, Instagram, Github, Mail } from 'lucide-react';
 import Navbar from './components/Navbar';
 import CursorGlow from './components/CursorGlow';
 import BackgroundEffects from './components/BackgroundEffects';
+import ThemeToggle from './theme/ThemeToggle';
 import Hero from './sections/Hero';
 import About from './sections/About';
 import Experience from './sections/Experience';
@@ -14,6 +15,7 @@ const App: React.FC = () => {
     <div className="relative min-h-screen selection:bg-moonstone/30 selection:text-moonstone-light">
       <BackgroundEffects />
       <CursorGlow />
+      <ThemeToggle />
 
       <div className="flex flex-col lg:flex-row min-h-screen">
         <Navbar />
